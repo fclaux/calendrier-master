@@ -1,0 +1,1112 @@
+{
+  "meta": {
+    "formation": "Master 1 Informatique I2A - EAD",
+    "etablissement": "Université Marie et Louis Pasteur",
+    "annee_universitaire": "2026-2027",
+    "semestre": "S1",
+    "semaines_pedagogiques": 12,
+    "debut": "2026-10-05",
+    "fin_cours": "2027-01-17",
+    "revisions": "2027-01-18 au 2027-01-24",
+    "examens": "2027-01-25 au 2027-01-31",
+    "convention": "Chaque semaine démarre un lundi et se termine le dimanche suivant.",
+    "genere_le": "2026-10-13"
+  },
+  "matieres": {
+    "agc": {
+      "nom": "Algo sur Graphes et Combinatoires",
+      "source": "agc.html",
+      "planning_officiel": true
+    },
+    "alo": {
+      "nom": "Archi Logicielles et à Objets",
+      "source": "alo.html",
+      "planning_officiel": true
+    },
+    "anglais": {
+      "nom": "Anglais",
+      "source": "anglais.pdf",
+      "planning_officiel": true,
+      "remarque": "Planning annuel par modules à dates glissantes, pas par semaine. Les modules 4 à 6 dépassent le S1."
+    },
+    "com": {
+      "nom": "Communication",
+      "source": "com.pdf",
+      "planning_officiel": true,
+      "remarque": "Le cours ne démarre qu'en semaine 7, car il réutilise les concepts de Synchronisation."
+    },
+    "ep": {
+      "nom": "Evaluation de Programmes",
+      "source": "coursEP.pdf",
+      "planning_officiel": false,
+      "enseignant": "Nicolas Vacelet",
+      "remarque": "Aucun parcours pédagogique fourni. Planning reconstruit à partir du plan du cours (5 chapitres, 71 pages de contenu) et calé sur le calendrier commun aux autres matières. Toutes les entrées EP portent le drapeau estime = true."
+    },
+    "reso": {
+      "nom": "Réseaux",
+      "source": "reseaux.pdf",
+      "planning_officiel": true,
+      "remarque": "Les trois devoirs sont facultatifs mais vivement conseillés."
+    },
+    "syn": {
+      "nom": "Synchronisation",
+      "source": "syn.pdf",
+      "planning_officiel": true,
+      "remarque": "Tout le contenu est concentré sur les semaines 1 à 6, le devoir unique clôturant le cours en semaine 7."
+    }
+  },
+  "vacances": [
+    {
+      "nom": "Vacances de la Toussaint",
+      "debut": "2026-10-26",
+      "fin": "2026-11-01",
+      "remarque": "Le planning ALO indique la période du 21 au 31 octobre."
+    },
+    {
+      "nom": "Vacances de Noël",
+      "debut": "2026-12-21",
+      "fin": "2027-01-03"
+    }
+  ],
+  "devoirs": [
+    {
+      "matiere": "agc",
+      "intitule": "Devoir 1",
+      "publie_semaine": 5,
+      "a_rendre": "2026-11-15",
+      "estime": false
+    },
+    {
+      "matiere": "agc",
+      "intitule": "Devoir 2",
+      "publie_semaine": 11,
+      "a_rendre": "2027-01-10",
+      "estime": false
+    },
+    {
+      "matiere": "alo",
+      "intitule": "Devoir 1",
+      "publie_semaine": 5,
+      "a_rendre": "2026-11-15",
+      "correction": "2026-11-22",
+      "estime": false
+    },
+    {
+      "matiere": "alo",
+      "intitule": "Devoir 2",
+      "publie_semaine": 11,
+      "a_rendre": "2027-01-10",
+      "correction": "2027-01-17",
+      "estime": false
+    },
+    {
+      "matiere": "anglais",
+      "intitule": "QCM de compréhension écrite (module 2)",
+      "publie_semaine": 6,
+      "a_rendre": "2026-12-14",
+      "note": "sur 20, coefficient 1",
+      "estime": false
+    },
+    {
+      "matiere": "com",
+      "intitule": "Devoir 1 : sockets",
+      "publie_semaine": 10,
+      "a_rendre": "2026-12-14T08:00",
+      "estime": false
+    },
+    {
+      "matiere": "com",
+      "intitule": "Devoir 2 : REST / WebSockets",
+      "publie_semaine": 13,
+      "a_rendre": "2027-01-18T08:00",
+      "estime": false
+    },
+    {
+      "matiere": "ep",
+      "intitule": "Devoir 1 : calculabilité et décidabilité (chapitres 1 à 3)",
+      "publie_semaine": 5,
+      "a_rendre": "2026-11-22",
+      "estime": true,
+      "justification": "Calé sur le rythme AGC et ALO, qui publient tous deux leur devoir 1 en semaine 5. Deux semaines de rendu permettent de couvrir le théorème de Rice vu en semaine 6, et évitent le pic du 15 novembre où ALO et Réseaux sont déjà à rendre."
+    },
+    {
+      "matiere": "ep",
+      "intitule": "Devoir 2 : complexité et NP-complétude (chapitres 4 et 5)",
+      "publie_semaine": 11,
+      "a_rendre": "2027-01-17",
+      "estime": true,
+      "justification": "Calé sur AGC et ALO, qui publient tous deux leur devoir 2 en semaine 11. Le rendu en fin de semaine 12 suit le groupe des échéances de janvier (Réseaux le 13, ALO le 10, Communication le 18)."
+    },
+    {
+      "matiere": "reso",
+      "intitule": "Devoir 1 : Introduction au réseau",
+      "publie_semaine": 5,
+      "a_rendre": "2026-11-15",
+      "correction": "semaine 6",
+      "facultatif": true,
+      "estime": false
+    },
+    {
+      "matiere": "reso",
+      "intitule": "Devoir 2 : La numérotation IP et le routage",
+      "publie_semaine": 8,
+      "a_rendre": "2026-12-06",
+      "correction": "semaine 9",
+      "facultatif": true,
+      "estime": false
+    },
+    {
+      "matiere": "reso",
+      "intitule": "Devoir 3 : Les réseaux sans fil, la sécurité et application pratique",
+      "publie_semaine": 12,
+      "a_rendre": "2027-01-13",
+      "correction": "semaine 12",
+      "facultatif": true,
+      "estime": false
+    },
+    {
+      "matiere": "syn",
+      "intitule": "Devoir",
+      "publie_semaine": 7,
+      "a_rendre": "2026-11-23T08:00",
+      "estime": false
+    }
+  ],
+  "semaines": [
+    {
+      "numero": 1,
+      "debut": "2026-10-05",
+      "fin": "2026-10-11",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "1",
+          "titre": "Graphes et algorithmes",
+          "contenu": [
+            "Introduction",
+            "Représentation des graphes",
+            "Chemins et parcours"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "1",
+          "titre": "Objet",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Accueil",
+          "titre": "Getting to know each other",
+          "contenu": [
+            "Période d'accueil du 5 au 19 octobre 2026",
+            "Activités pour briser la glace",
+            "Aucune évaluation"
+          ],
+          "devoirs": []
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "1",
+          "titre": "Introduction",
+          "pages": "6-15",
+          "contenu": [
+            "Problème : problèmes de décision et problèmes d'optimisation",
+            "Algorithme et programme",
+            "Existe-t-il un algorithme pour chaque problème : le problème de pavage",
+            "Décidable / indécidable",
+            "Problèmes traitables et non traitables",
+            "La grande carte de l'informatique théorique"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Présentation des réseaux",
+          "titre": "Présentation des réseaux",
+          "contenu": [
+            "Les différents types de réseaux et les technologies sous-jacentes"
+          ],
+          "exercices": [],
+          "devoirs": []
+        },
+        "syn": {
+          "chapitre": "1",
+          "titre": "Programmation multi-thread en Java : premiers pas",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": 2,
+      "debut": "2026-10-12",
+      "fin": "2026-10-18",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "1",
+          "titre": "Graphes et algorithmes",
+          "contenu": [
+            "Recherche de plus courts chemins"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "2",
+          "titre": "UML",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Accueil",
+          "titre": "Getting to know each other",
+          "contenu": [
+            "Suite de la période d'accueil, jusqu'au 19 octobre"
+          ],
+          "devoirs": []
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "2",
+          "titre": "Les machines de Turing (première partie)",
+          "pages": "16-23",
+          "contenu": [
+            "Vocabulaire de base : alphabet, mot, langage",
+            "Présentation intuitive puis définition formelle",
+            "Configurations et étapes de calcul",
+            "Mots et langages reconnus",
+            "Langages et fonctions décidables"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Concepts de base",
+          "titre": "Concepts de base",
+          "contenu": [
+            "Concepts de base utilisés dans les télécommunications"
+          ],
+          "exercices": [],
+          "devoirs": []
+        },
+        "syn": {
+          "chapitre": "2",
+          "titre": "Synchronisation entre processus",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": 3,
+      "debut": "2026-10-19",
+      "fin": "2026-10-25",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "1",
+          "titre": "Graphes et algorithmes",
+          "contenu": [
+            "Connexité, arbres et arbres couvrants"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "2",
+          "titre": "UML",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 1",
+          "titre": "Participation et prise en main",
+          "contenu": [
+            "Module du 19 octobre au 16 novembre 2026",
+            "Évaluation : participation active aux activités dans les forums",
+            "Aucun devoir à rendre"
+          ],
+          "devoirs": []
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "2",
+          "titre": "Les machines de Turing (seconde partie)",
+          "pages": "23-30",
+          "contenu": [
+            "Variations : machine à plusieurs rubans, machine non déterministe",
+            "La thèse de Church-Turing",
+            "Machines de Turing comme énumérateurs",
+            "La machine de Turing universelle : un programme est une donnée",
+            "La hiérarchie de Chomsky"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Les réseaux locaux",
+          "titre": "Les réseaux locaux",
+          "contenu": [
+            "Ethernet et les technologies LAN"
+          ],
+          "exercices": [],
+          "devoirs": []
+        },
+        "syn": {
+          "chapitre": "2",
+          "titre": "Synchronisation entre processus",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": null,
+      "debut": "2026-10-26",
+      "fin": "2026-11-01",
+      "type": "vacances",
+      "libelle": "Vacances de la Toussaint",
+      "matieres": {}
+    },
+    {
+      "numero": 4,
+      "debut": "2026-11-02",
+      "fin": "2026-11-08",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "2",
+          "titre": "Programmation linéaire",
+          "contenu": [
+            "Formulation du problème"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "3",
+          "titre": "Java",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 1",
+          "titre": "Participation et prise en main",
+          "contenu": [
+            "Participation dans les forums"
+          ],
+          "devoirs": []
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "3",
+          "titre": "Décidabilité et indécidabilité (première partie)",
+          "pages": "31-35",
+          "contenu": [
+            "Rappel de la thèse de Church-Turing",
+            "Langages et problèmes décidables, propriétés de fermeture",
+            "Codage des machines de Turing",
+            "Le langage diagonal Ld et l'argument diagonal"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "TPC/IP",
+          "titre": "TCP/IP",
+          "contenu": [
+            "UDP",
+            "TCP",
+            "Autres protocoles"
+          ],
+          "exercices": [],
+          "devoirs": []
+        },
+        "syn": {
+          "chapitre": "2-3",
+          "titre": "Synchronisation entre processus / en Java",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": 5,
+      "debut": "2026-11-09",
+      "fin": "2026-11-15",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "2",
+          "titre": "Programmation linéaire",
+          "contenu": [
+            "Simplexe"
+          ],
+          "devoirs": [
+            "Devoir 1"
+          ]
+        },
+        "alo": {
+          "chapitre": "Devoir",
+          "titre": "Devoir 1",
+          "contenu": [],
+          "devoirs": [
+            "Devoir 1, à rendre le 15/11"
+          ]
+        },
+        "anglais": {
+          "chapitre": "Module 1",
+          "titre": "Participation et prise en main",
+          "contenu": [
+            "Fin du module 1 le 16 novembre"
+          ],
+          "devoirs": []
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "3",
+          "titre": "Décidabilité et indécidabilité (seconde partie)",
+          "pages": "35-41",
+          "contenu": [
+            "Réductions entre problèmes",
+            "Le problème de l'acceptation (problème universel)",
+            "Le problème de l'arrêt",
+            "Semi-décidabilité, classe co-RE et hiérarchie R / RE / co-RE"
+          ],
+          "devoirs": [
+            "Devoir 1 publié, à rendre le 22/11"
+          ],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Numérotation IP (partie 1)",
+          "titre": "Numérotation IP (partie 1)",
+          "contenu": [
+            "IPv4 et adresses IP",
+            "Configuration IP",
+            "Matériels",
+            "Sous-réseaux"
+          ],
+          "exercices": [
+            "exo1_num.pdf à exo9_num.pdf"
+          ],
+          "devoirs": [
+            "Devoir 1, à rendre le 15/11"
+          ]
+        },
+        "syn": {
+          "chapitre": "3",
+          "titre": "Synchronisation en Java",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": 6,
+      "debut": "2026-11-16",
+      "fin": "2026-11-22",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "3",
+          "titre": "Programmation dynamique",
+          "contenu": [
+            "Mémoïsation, structure de la solution optimale"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "4",
+          "titre": "Conception",
+          "contenu": [],
+          "devoirs": [
+            "Correction du devoir 1 rendue le 22/11 si possible"
+          ]
+        },
+        "anglais": {
+          "chapitre": "Module 2",
+          "titre": "Compréhension écrite",
+          "contenu": [
+            "Module du 16 novembre au 14 décembre 2026",
+            "Évaluation : participation dans les forums",
+            "QCM de compréhension écrite, note sur 20 coefficient 1",
+            "Compétence : lire"
+          ],
+          "devoirs": [
+            "QCM de compréhension écrite, avant le 14/12"
+          ]
+        },
+        "com": null,
+        "ep": {
+          "chapitre": "3",
+          "titre": "Décidabilité et indécidabilité (fin)",
+          "pages": "41-44",
+          "contenu": [
+            "Le théorème de Rice et ses conséquences pratiques",
+            "Bilan du chapitre",
+            "Exercices de la section 3.8"
+          ],
+          "devoirs": [
+            "Devoir 1 à rendre le 22/11"
+          ],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Numérotation IP (partie 2)",
+          "titre": "Numérotation IP (partie 2)",
+          "contenu": [],
+          "exercices": [],
+          "devoirs": [
+            "Correction du devoir 1"
+          ]
+        },
+        "syn": {
+          "chapitre": "3",
+          "titre": "Synchronisation en Java",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    },
+    {
+      "numero": 7,
+      "debut": "2026-11-23",
+      "fin": "2026-11-29",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "3",
+          "titre": "Programmation dynamique",
+          "contenu": [
+            "Solution de programmation dynamique"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "4",
+          "titre": "Conception",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 2",
+          "titre": "Compréhension écrite",
+          "contenu": [
+            "Participation dans les forums"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "1",
+          "titre": "Communication avec les sockets",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "4",
+          "titre": "Classes de complexité (première partie)",
+          "pages": "45-49",
+          "contenu": [
+            "Pourquoi mesurer la complexité",
+            "Calculer la complexité",
+            "La notation grand-O et les règles de comptage",
+            "Comparaison d'algorithmes"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Le routage (partie 1)",
+          "titre": "Le routage (partie 1)",
+          "contenu": [
+            "Principe du routage",
+            "Types de routage"
+          ],
+          "exercices": [
+            "exo1_routage.pdf à exo4_routage.pdf"
+          ],
+          "devoirs": []
+        },
+        "syn": {
+          "chapitre": "Devoir",
+          "titre": "Devoir",
+          "contenu": [],
+          "devoirs": [
+            "Devoir unique, à rendre le lundi 23 novembre 2026 à 8h"
+          ]
+        }
+      }
+    },
+    {
+      "numero": 8,
+      "debut": "2026-11-30",
+      "fin": "2026-12-06",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "4",
+          "titre": "Programmation gloutonne",
+          "contenu": [
+            "Arbre couvrant / choix d'activités en programmation dynamique"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "5",
+          "titre": "Patron",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 2",
+          "titre": "Compréhension écrite",
+          "contenu": [
+            "Participation dans les forums"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "2",
+          "titre": "Communication avec les sockets",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "4",
+          "titre": "Classes de complexité (deuxième partie)",
+          "pages": "49-53",
+          "contenu": [
+            "Complexité d'une machine de Turing : compter les étapes et les cases",
+            "Cas des machines non déterministes",
+            "Les quatre grandes familles de classes",
+            "P, NP et co-NP, illustrés par le Sudoku",
+            "La thèse de l'invariance"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Le routage (partie 2)",
+          "titre": "Le routage (partie 2)",
+          "contenu": [
+            "Règles d'accès"
+          ],
+          "exercices": [],
+          "devoirs": [
+            "Devoir 2, à rendre le 06/12"
+          ]
+        },
+        "syn": null
+      }
+    },
+    {
+      "numero": 9,
+      "debut": "2026-12-07",
+      "fin": "2026-12-13",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "4",
+          "titre": "Programmation gloutonne",
+          "contenu": [
+            "Solution gloutonne au choix d'activités"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "5",
+          "titre": "Patron",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 2",
+          "titre": "Compréhension écrite",
+          "contenu": [
+            "Fin du module 2 le 14 décembre"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "3",
+          "titre": "Développement d'application avec les sockets",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "4",
+          "titre": "Classes de complexité (fin)",
+          "pages": "53-59",
+          "contenu": [
+            "La hiérarchie des vitesses et le théorème de hiérarchie temporelle",
+            "Le théorème de Savitch : espace déterministe contre non déterministe",
+            "Intuition : la technique de bissection",
+            "Exercices de la section 4.8 et résumé général"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Les réseaux sans fil (partie 1)",
+          "titre": "Les réseaux sans fil (partie 1)",
+          "contenu": [
+            "GSM",
+            "GPRS",
+            "UMTS"
+          ],
+          "exercices": [
+            "exo1-sansfil.pdf"
+          ],
+          "devoirs": [
+            "Correction du devoir 2"
+          ]
+        },
+        "syn": null
+      }
+    },
+    {
+      "numero": 10,
+      "debut": "2026-12-14",
+      "fin": "2026-12-20",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "5",
+          "titre": "Cycle eulérien et hamiltonien",
+          "contenu": [
+            "Cycles eulériens et chinois"
+          ],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "6",
+          "titre": "Architecture",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 3",
+          "titre": "Continuation et échange",
+          "contenu": [
+            "Module du 14 décembre 2026 au 18 janvier 2027",
+            "Évaluation : participation dans les forums",
+            "Aucun devoir à rendre"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "3",
+          "titre": "Web Services REST",
+          "contenu": [],
+          "devoirs": [
+            "Devoir 1 (sockets), à rendre avant le lundi 14 décembre 2026 à 8h"
+          ]
+        },
+        "ep": {
+          "chapitre": "5",
+          "titre": "P vs NP (première partie)",
+          "pages": "60-67",
+          "contenu": [
+            "Retour sur P et NP, pourquoi la question est importante",
+            "Problèmes NP-complets et transformations polynomiales",
+            "NP-difficile contre NP-complet",
+            "SAT, le premier problème NP-complet : rappels de logique, forme normale conjonctive",
+            "Le théorème de Cook-Levin (1971) et la variante 3-SAT"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Les réseaux sans fil (partie 2)",
+          "titre": "Les réseaux sans fil (partie 2)",
+          "contenu": [
+            "Wifi et Bluetooth",
+            "Réseaux ad-hoc"
+          ],
+          "exercices": [
+            "exo2-sansfil.pdf"
+          ],
+          "devoirs": [],
+          "remarque": "Le PDF indique par erreur la période du 13/12 au 20/12."
+        },
+        "syn": null
+      }
+    },
+    {
+      "numero": null,
+      "debut": "2026-12-21",
+      "fin": "2027-01-03",
+      "type": "vacances",
+      "libelle": "Vacances de Noël",
+      "matieres": {}
+    },
+    {
+      "numero": 11,
+      "debut": "2027-01-04",
+      "fin": "2027-01-10",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "5",
+          "titre": "Cycle eulérien et hamiltonien",
+          "contenu": [
+            "Cycles hamiltoniens et voyageur de commerce"
+          ],
+          "devoirs": [
+            "Devoir 2"
+          ]
+        },
+        "alo": {
+          "chapitre": "Devoir",
+          "titre": "Devoir 2",
+          "contenu": [],
+          "devoirs": [
+            "Devoir 2, à rendre le 10/01"
+          ]
+        },
+        "anglais": {
+          "chapitre": "Module 3",
+          "titre": "Continuation et échange",
+          "contenu": [
+            "Participation dans les forums"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "3",
+          "titre": "Web Services REST",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "5",
+          "titre": "P vs NP (deuxième partie)",
+          "pages": "67-70",
+          "contenu": [
+            "La galaxie des problèmes NP-complets : voyageur de commerce, sac à dos, coloration de graphe, clique",
+            "Comment prouver qu'un problème est NP-complet",
+            "Exemple complet de réduction : Clique <=p Ensemble Indépendant",
+            "Les stratégies face à la NP-complétude"
+          ],
+          "devoirs": [
+            "Devoir 2 publié, à rendre le 17/01"
+          ],
+          "estime": true,
+          "remarque": "Le voyageur de commerce est vu la même semaine en AGC, les deux cours se renforcent."
+        },
+        "reso": {
+          "chapitre": "Sécurité (partie 1)",
+          "titre": "Sécurité (partie 1)",
+          "contenu": [
+            "Algorithme sur la sécurité",
+            "Chiffrement"
+          ],
+          "exercices": [],
+          "devoirs": []
+        },
+        "syn": null
+      }
+    },
+    {
+      "numero": 12,
+      "debut": "2027-01-11",
+      "fin": "2027-01-17",
+      "type": "cours",
+      "matieres": {
+        "agc": {
+          "chapitre": "--",
+          "titre": "Révisions",
+          "contenu": [],
+          "devoirs": []
+        },
+        "alo": {
+          "chapitre": "Révision",
+          "titre": "Révision",
+          "contenu": [],
+          "devoirs": [
+            "Correction du devoir 2 rendue le 17/01 si possible"
+          ]
+        },
+        "anglais": {
+          "chapitre": "Module 3",
+          "titre": "Continuation et échange",
+          "contenu": [
+            "Fin du module 3 le 18 janvier"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "4",
+          "titre": "Web Sockets",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "5",
+          "titre": "P vs NP (fin)",
+          "pages": "70-76",
+          "contenu": [
+            "Au-delà de NP : problèmes NP-intermédiaires et théorème de Ladner",
+            "La hiérarchie polynomiale",
+            "L'état de la question : où en est-on",
+            "Quiz final et exercices, sections 5.8 et 5.9",
+            "Conclusion du cours"
+          ],
+          "devoirs": [
+            "Devoir 2 à rendre le 17/01"
+          ],
+          "estime": true
+        },
+        "reso": {
+          "chapitre": "Sécurité (partie 2)",
+          "titre": "Sécurité (partie 2)",
+          "contenu": [
+            "Les protocoles de sécurité"
+          ],
+          "exercices": [
+            "exo1_secu.pdf",
+            "exo2_secu.pdf"
+          ],
+          "devoirs": [
+            "Devoir 3, à rendre le 13/01",
+            "Correction du devoir 3"
+          ]
+        },
+        "syn": null
+      }
+    },
+    {
+      "numero": 13,
+      "debut": "2027-01-18",
+      "fin": "2027-01-24",
+      "type": "revisions",
+      "matieres": {
+        "agc": null,
+        "alo": {
+          "chapitre": "Révision",
+          "titre": "Révision",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 4",
+          "titre": "Expression orale",
+          "contenu": [
+            "Module du 18 janvier au 22 février 2027, déborde sur le S2",
+            "Évaluation : participation dans les forums",
+            "Devoir vocal au format MP3, note sur 20 coefficient 1",
+            "Compétence : parler"
+          ],
+          "devoirs": [
+            "Devoir vocal MP3"
+          ]
+        },
+        "com": {
+          "chapitre": "--",
+          "titre": "Révisions",
+          "contenu": [],
+          "devoirs": [
+            "Devoir 2 (REST / WebSockets), à rendre avant le lundi 18 janvier 2027 à 8h"
+          ]
+        },
+        "ep": {
+          "chapitre": "--",
+          "titre": "Révisions",
+          "contenu": [
+            "Reprise des quiz rapides et des exercices des chapitres 3, 4 et 5",
+            "Revoir les techniques de réduction, qui sont au cœur des chapitres 3 et 5"
+          ],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": null,
+        "syn": null
+      }
+    },
+    {
+      "numero": 14,
+      "debut": "2027-01-25",
+      "fin": "2027-01-31",
+      "type": "examens",
+      "matieres": {
+        "agc": null,
+        "alo": {
+          "chapitre": "Examen",
+          "titre": "Examen",
+          "contenu": [],
+          "devoirs": []
+        },
+        "anglais": {
+          "chapitre": "Module 4",
+          "titre": "Expression orale",
+          "contenu": [
+            "Poursuite du module 4"
+          ],
+          "devoirs": []
+        },
+        "com": {
+          "chapitre": "Examen",
+          "titre": "Examens",
+          "contenu": [],
+          "devoirs": []
+        },
+        "ep": {
+          "chapitre": "Examen",
+          "titre": "Examen",
+          "contenu": [],
+          "devoirs": [],
+          "estime": true
+        },
+        "reso": null,
+        "syn": {
+          "chapitre": "Examen",
+          "titre": "Examens",
+          "contenu": [],
+          "devoirs": []
+        }
+      }
+    }
+  ],
+  "hors_semestre": {
+    "anglais": [
+      {
+        "module": "Module 4",
+        "titre": "Expression orale",
+        "debut": "2027-01-18",
+        "fin": "2027-02-22",
+        "evaluation": "Participation dans les forums et devoir vocal MP3, note sur 20 coefficient 1",
+        "competences": "Parler"
+      },
+      {
+        "module": "Module 5",
+        "titre": "Projet vidéo",
+        "debut": "2027-02-22",
+        "fin": "2027-04-05",
+        "evaluation": "Participation dans les forums et devoir vidéo MP4, note sur 20 coefficient 1",
+        "competences": "Écrire / Parler"
+      },
+      {
+        "module": "Module 6",
+        "titre": "Test final sur plateforme",
+        "debut": "2027-04-05",
+        "fin": "2027-05-03",
+        "evaluation": "Participation dans les forums et test QCM sur Moodle",
+        "competences": "Lire / Écouter"
+      },
+      {
+        "evenement": "Fin de l'année scolaire en anglais",
+        "date": "2027-05-04"
+      },
+      {
+        "evenement": "Session de seconde chance",
+        "debut": "2027-06-28",
+        "fin": "2027-07-04",
+        "remarque": "Réservée aux étudiants n'ayant pas obtenu une moyenne de 10/20. Un devoir supplémentaire est à rendre."
+      },
+      {
+        "evenement": "Note annuelle de participation",
+        "remarque": "Cinquième note attribuée selon la participation aux forums, sur quatre critères : nombre de modules suivis, régularité, interaction avec les autres, longueur des publications."
+      }
+    ]
+  }
+}

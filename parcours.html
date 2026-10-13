@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+  :root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  body{margin:0;font:14px system-ui,-apple-system,sans-serif;background:#fafaf9}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<title>Parcours pédagogique I2A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#E9EBEF; --card:#FFFFFF; --card-2:#F2F4F8; --dot:#D9DCE4;
+    --ink:#15192B; --ink-2:#4E5569; --ink-3:#868DA1;
+    --rule:#D4D8E1; --rule-2:#B9BFCD;
+    --ultra:#1F38A8; --ultra-bg:#E4E8F9; --on-ultra:#FFFFFF;
+    --verm:#C33A20; --verm-bg:#FAE5E0;
+    --ok:#1B6A48; --ok-bg:#DFEDE5;
+    --c-agc:#2742B5;  --c-agc-bg:#E5E9F8;
+    --c-alo:#0C6E6D;  --c-alo-bg:#DCEFEE;
+    --c-anglais:#87357A; --c-anglais-bg:#F5E4F2;
+    --c-com:#8F5B0C;  --c-com-bg:#F6EAD4;
+    --c-ep:#5238BD;   --c-ep-bg:#E9E4FA;
+    --c-reso:#256038; --c-reso-bg:#DEEEE3;
+    --c-syn:#96263C;  --c-syn-bg:#F7E2E6;
+    --r:3px;
+    --fd:'Bricolage Grotesque','Trebuchet MS',sans-serif;
+    --fb:'Instrument Sans',system-ui,-apple-system,sans-serif;
+    --fm:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0F1118; --card:#191C26; --card-2:#212631; --dot:#1B1F2A;
+      --ink:#E6E9F2; --ink-2:#A2A9BC; --ink-3:#6E768A;
+      --rule:#2A2F3B; --rule-2:#39404E;
+      --ultra:#8CA0FF; --ultra-bg:#1B2240; --on-ultra:#0F1118;
+      --verm:#FF8266; --verm-bg:#381B15;
+      --ok:#5CC596; --ok-bg:#11291F;
+      --c-agc:#8EA2FF;  --c-agc-bg:#1B2241;
+      --c-alo:#4FD1CE;  --c-alo-bg:#0D2928;
+      --c-anglais:#E092D5; --c-anglais-bg:#2D152F;
+      --c-com:#DFA849;  --c-com-bg:#2E2110;
+      --c-ep:#A795FF;   --c-ep-bg:#231B43;
+      --c-reso:#74CD8A; --c-reso-bg:#112918;
+      --c-syn:#EF7F97;  --c-syn-bg:#320F17;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0F1118; --card:#191C26; --card-2:#212631; --dot:#1B1F2A;
+    --ink:#E6E9F2; --ink-2:#A2A9BC; --ink-3:#6E768A;
+    --rule:#2A2F3B; --rule-2:#39404E;
+    --ultra:#8CA0FF; --ultra-bg:#1B2240; --on-ultra:#0F1118;
+    --verm:#FF8266; --verm-bg:#381B15;
+    --ok:#5CC596; --ok-bg:#11291F;
+    --c-agc:#8EA2FF;  --c-agc-bg:#1B2241;
+    --c-alo:#4FD1CE;  --c-alo-bg:#0D2928;
+    --c-anglais:#E092D5; --c-anglais-bg:#2D152F;
+    --c-com:#DFA849;  --c-com-bg:#2E2110;
+    --c-ep:#A795FF;   --c-ep-bg:#231B43;
+    --c-reso:#74CD8A; --c-reso-bg:#112918;
+    --c-syn:#EF7F97;  --c-syn-bg:#320F17;
+  }
+
+  body{
+    background-color:var(--paper);
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size:22px 22px;
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:var(--fb);
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  *{box-sizing:border-box}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+  .mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--ultra);outline-offset:2px;border-radius:2px}
+
+  /* ---------- header ---------- */
+  .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background-color:var(--paper);border-bottom:1px solid var(--rule-2)}
+  .top-in{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding-block:13px}
+  .brand{display:flex;flex-direction:column;gap:2px;margin-right:auto}
+  .brand h1{margin:0;font-family:var(--fd);font-weight:700;font-size:19px;letter-spacing:-.015em;line-height:1.1}
+  .tabs{display:flex;gap:4px;background:var(--card-2);border:1px solid var(--rule);border-radius:var(--r);padding:3px}
+  .tab{font-family:var(--fm);font-size:11.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+    background:transparent;border:0;border-radius:2px;padding:7px 12px;color:var(--ink-2)}
+  .tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+  .theme{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);width:34px;height:32px;
+    display:grid;place-items:center;font-size:14px;line-height:1}
+
+  /* ---------- now strip ---------- */
+  .now-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:12px;padding-block:20px 6px}
+  .tile{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:13px 15px 14px;
+    display:flex;flex-direction:column;gap:7px;min-width:0}
+  .tile.lead{border-color:var(--ultra);background:var(--ultra-bg)}
+  .tile-big{font-family:var(--fd);font-weight:700;font-size:21px;line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
+  .tile-sub{font-family:var(--fm);font-size:12px;color:var(--ink-2)}
+  .tile.due-tile .tile-big{color:var(--verm)}
+  .count{font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.04em;
+    background:var(--verm-bg);color:var(--verm);border-radius:2px;padding:4px 7px;align-self:flex-start}
+  .chipline{display:flex;flex-wrap:wrap;gap:4px}
+  .prog-row{display:flex;flex-direction:column;gap:5px}
+  .prog-lab{display:flex;justify-content:space-between;gap:12px;font-family:var(--fm);font-size:11.5px;
+    color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .bar{height:6px;border-radius:3px;background:var(--card-2);border:1px solid var(--rule);overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--ok)}
+
+  /* ---------- ruler ---------- */
+  .ruler-block{padding-block:14px 4px;display:flex;flex-direction:column;gap:7px}
+  .ruler{display:flex;gap:3px;align-items:stretch}
+  .tick{position:relative;flex:1 1 0;min-width:0;height:36px;border:1px solid var(--rule);border-radius:2px;
+    background:var(--card);font-family:var(--fm);font-size:11.5px;font-weight:500;color:var(--ink-2);
+    display:grid;place-items:center;padding:0;font-variant-numeric:tabular-nums}
+  .tick.past{background:var(--card-2);color:var(--ink-3)}
+  .tick.full{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+  .tick.now{background:var(--ultra);border-color:var(--ultra);color:var(--on-ultra);font-weight:600}
+  .tick.hol{flex:0 0 20px;cursor:default;color:transparent;
+    background-image:repeating-linear-gradient(135deg,var(--rule) 0 3px,transparent 3px 7px)}
+  .tick .pin{position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%;background:var(--verm)}
+
+  /* ---------- controls ---------- */
+  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding-block:16px 10px;
+    border-top:1px solid var(--rule);margin-top:14px}
+  .filters{display:flex;flex-wrap:wrap;gap:5px}
+  .fchip{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    border:1px solid var(--rule-2);background:var(--card);color:var(--ink-3);border-radius:2px;padding:5px 8px}
+  .fchip[aria-pressed="true"]{background:var(--sc-bg);color:var(--sc);border-color:var(--sc)}
+  .tchip{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    border:1px solid var(--rule-2);background:var(--card);color:var(--ink-3);border-radius:2px;padding:5px 8px}
+  .tchip[aria-pressed="true"]{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+  .search{flex:1 1 180px;min-width:150px;display:flex;align-items:center;gap:7px;
+    background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:0 10px}
+  .search input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:14px;padding:8px 0}
+  .search input::placeholder{color:var(--ink-3)}
+  .search input:focus{outline:none}
+  .search-ico{font-family:var(--fm);font-size:12px;color:var(--ink-3)}
+
+  /* ---------- checkbox ---------- */
+  .chk{display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none;
+    font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  .chk.foot{margin-top:auto;padding-top:9px;border-top:1px solid var(--rule)}
+  .chk input{appearance:none;-webkit-appearance:none;width:16px;height:16px;flex:0 0 auto;margin:0;
+    border:1.5px solid var(--rule-2);border-radius:2px;background:var(--card);
+    display:grid;place-items:center;cursor:pointer}
+  .chk input:checked{background:var(--ok);border-color:var(--ok)}
+  .chk input:checked::after{content:'';width:4px;height:8px;border:solid var(--card);
+    border-width:0 1.6px 1.6px 0;transform:rotate(45deg) translateY(-1px)}
+  .chk input:checked ~ .chk-t{color:var(--ok)}
+
+  /* ---------- weeks ---------- */
+  .weeks{padding-bottom:40px}
+  .wk{display:grid;grid-template-columns:98px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--rule-2);scroll-margin-top:96px}
+  .wk-rail{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+  .wk-no{font-family:var(--fm);font-size:30px;font-weight:600;line-height:1;letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;border-radius:2px}
+  .wk.now-wk{background:var(--ultra-bg);border-top-color:var(--ultra);
+    margin-inline:-14px;padding-inline:14px;border-radius:var(--r)}
+  .wk.now-wk .wk-no{background:var(--ultra);color:var(--on-ultra);padding:2px 8px;margin-left:-2px}
+  .wk-dates{font-family:var(--fm);font-size:11.5px;color:var(--ink-2);line-height:1.4}
+  .wk-tag{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    border-radius:2px;padding:3px 6px;background:var(--card-2);color:var(--ink-3)}
+  .wk-tag.live{background:var(--ultra);color:var(--on-ultra)}
+  .wk-tag.exam{background:var(--ink);color:var(--paper)}
+  .wk-prog{font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.06em;
+    border-radius:2px;padding:3px 6px;background:var(--card-2);color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .wk-prog.full{background:var(--ok-bg);color:var(--ok)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:10px;align-content:start}
+
+  .sc{--sc:var(--ink);--sc-bg:var(--card-2);
+    background:var(--card);border:1px solid var(--rule);border-radius:var(--r);
+    padding:11px 12px 12px;display:flex;flex-direction:column;gap:7px;min-width:0}
+  .sc.est{border-style:dashed;border-color:var(--rule-2)}
+  .sc.done{background:var(--card-2);opacity:.68}
+  .sc.done .sc-title{color:var(--ink-2)}
+  .sc-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .code{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    border-radius:2px;padding:3px 6px;background:var(--sc-bg);color:var(--sc)}
+  .sc-ch{font-family:var(--fm);font-size:11px;color:var(--ink-3)}
+  .sc-title{font-family:var(--fd);font-weight:600;font-size:14.5px;line-height:1.25;letter-spacing:-.005em;text-wrap:balance}
+  .sc ul{margin:0;padding-left:15px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink-2)}
+  .sc li::marker{color:var(--sc)}
+  .ex{font-family:var(--fm);font-size:11.5px;color:var(--ink-2);background:var(--card-2);
+    border-radius:2px;padding:5px 7px;overflow-wrap:anywhere}
+  .due{display:flex;gap:7px;align-items:flex-start;font-size:12.5px;font-weight:500;line-height:1.35;
+    color:var(--verm);background:var(--verm-bg);border-radius:2px;padding:6px 8px}
+  .due .bullet{font-family:var(--fm);flex:0 0 auto}
+  .note{font-size:11.5px;color:var(--ink-3);line-height:1.4;display:flex;gap:6px}
+  .note b{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;flex:0 0 auto;padding-top:1px}
+  .est-tag{font-family:var(--fm);font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    border:1px dashed var(--sc);color:var(--sc);border-radius:2px;padding:2px 5px}
+
+  .hol{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:15px 16px;border-top:1px solid var(--rule-2);
+    background-image:repeating-linear-gradient(135deg,var(--card-2) 0 9px,transparent 9px 18px)}
+  .hol h3{margin:0;font-family:var(--fd);font-weight:500;font-size:15px;color:var(--ink-2)}
+
+  /* ---------- devoirs ---------- */
+  .dv-head,.dv{display:grid;grid-template-columns:118px 96px 1fr 86px;gap:16px;align-items:start}
+  .dv-head{padding-bottom:9px;border-bottom:1px solid var(--rule-2)}
+  .dv{padding:14px 0;border-bottom:1px solid var(--rule)}
+  .dv.past{opacity:.62}
+  .dv.rendu{opacity:.6}
+  .dv.rendu .dv-title{color:var(--ink-2)}
+  .dv-date{font-family:var(--fm);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.35}
+  .dv-when{font-family:var(--fm);font-size:11.5px;font-weight:600;letter-spacing:.03em;border-radius:2px;
+    padding:3px 6px;justify-self:start;background:var(--card-2);color:var(--ink-3)}
+  .dv-when.soon{background:var(--verm-bg);color:var(--verm)}
+  .dv-main{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .dv-title{font-family:var(--fd);font-weight:600;font-size:15px;line-height:1.3;text-wrap:balance}
+  .tagrow{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+  .tag{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    border-radius:2px;padding:3px 6px;background:var(--card-2);color:var(--ink-3)}
+  .why{font-size:12.5px;color:var(--ink-2);line-height:1.45;border-left:2px solid var(--rule-2);padding-left:10px}
+
+  /* ---------- matieres ---------- */
+  .m-tabs{display:flex;flex-wrap:wrap;gap:6px;padding-block:18px 4px}
+  .m-tab{--sc:var(--ink);--sc-bg:var(--card-2);
+    display:flex;flex-direction:column;gap:3px;text-align:left;min-width:0;
+    background:var(--card);border:1px solid var(--rule);border-radius:var(--r);padding:9px 12px}
+  .m-tab[aria-pressed="true"]{background:var(--sc-bg);border-color:var(--sc)}
+  .m-tab .mt-code{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sc)}
+  .m-tab .mt-name{font-family:var(--fd);font-weight:500;font-size:13.5px;color:var(--ink)}
+  .m-tab .mt-prog{font-family:var(--fm);font-size:10px;letter-spacing:.05em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .m-head{padding-block:20px 2px;display:flex;flex-direction:column;gap:8px}
+  .m-head h2{margin:0;font-family:var(--fd);font-weight:700;font-size:27px;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+  .path{padding-bottom:40px}
+  .pr{display:grid;grid-template-columns:66px 1fr 86px;gap:16px;padding:14px 0;border-top:1px solid var(--rule)}
+  .pr.now-wk{background:var(--ultra-bg);margin-inline:-12px;padding-inline:12px;border-radius:var(--r);border-top-color:var(--ultra)}
+  .pr-rail{display:flex;flex-direction:column;gap:3px}
+  .pr-no{font-family:var(--fm);font-size:18px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+  .pr-d{font-family:var(--fm);font-size:10.5px;color:var(--ink-3);line-height:1.35}
+  .pr-body{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .pr-title{font-family:var(--fd);font-weight:600;font-size:16px;line-height:1.25;text-wrap:balance}
+  .pr-body ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:4px;font-size:13.5px;color:var(--ink-2)}
+  .pr.off{opacity:.5}
+  .pr.off .pr-title{font-family:var(--fb);font-weight:400;font-size:13.5px;color:var(--ink-3)}
+  .pr.done{opacity:.62}
+  .pr.done .pr-title{color:var(--ink-2)}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;padding:16px 0 10px;border-top:1px solid var(--rule);
+    font-size:12.5px;color:var(--ink-2)}
+  .lg{display:flex;align-items:center;gap:7px}
+  .sw{width:13px;height:13px;border-radius:2px;flex:0 0 auto}
+  .empty{padding:50px 0 60px;text-align:center;color:var(--ink-3);font-family:var(--fm);font-size:13px}
+  .foot{border-top:1px solid var(--rule);padding:16px 0 36px;display:flex;flex-direction:column;gap:7px;
+    font-family:var(--fm);font-size:11px;color:var(--ink-3)}
+  .sync{display:flex;align-items:center;gap:7px}
+  .sync .dotled{width:7px;height:7px;border-radius:50%;background:var(--rule-2);flex:0 0 auto}
+  .sync.on .dotled{background:var(--ok)}
+  [hidden]{display:none!important}
+
+  @media (max-width:740px){
+    .wk{grid-template-columns:1fr;gap:12px}
+    .wk-rail{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px}
+    .wk-no{font-size:24px}
+    .dv-head{display:none}
+    .dv{grid-template-columns:1fr;gap:9px}
+    .pr{grid-template-columns:1fr;gap:9px}
+    .pr-rail{flex-direction:row;align-items:center;gap:9px}
+    .tick{font-size:10px}
+    .tick.hol{flex:0 0 12px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  @media print{
+    .top,.controls,.ruler-block,.theme,.tabs{display:none}
+    body{background:#fff;color:#000}
+    .wk{break-inside:avoid}
+  }
+</style>
+
+<div class="top">
+  <div class="wrap top-in">
+    <div class="brand">
+      <span class="eyebrow">Master 1 I2A &middot; EAD &middot; 2026&ndash;2027</span>
+      <h1>Parcours pédagogique &mdash; Semestre 1</h1>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Vues">
+      <button class="tab" role="tab" id="tab-semaines" aria-selected="true" data-view="semaines">Semaines</button>
+      <button class="tab" role="tab" id="tab-matieres" aria-selected="false" data-view="matieres">Matières</button>
+      <button class="tab" role="tab" id="tab-devoirs" aria-selected="false" data-view="devoirs">Échéances</button>
+    </div>
+    <button class="theme" id="theme-btn" type="button" aria-label="Changer de thème" title="Changer de thème">◐</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="now-strip" id="now-strip"></section>
+
+  <section id="view-semaines">
+    <div class="ruler-block">
+      <span class="eyebrow">Règle du semestre &middot; 12 semaines de cours, révisions, examens</span>
+      <div class="ruler" id="ruler"></div>
+    </div>
+    <div class="controls">
+      <div class="filters" id="filters" role="group" aria-label="Filtrer par matière"></div>
+      <button class="tchip" type="button" id="hide-done" aria-pressed="false">Masquer le fait</button>
+      <label class="search">
+        <span class="search-ico" aria-hidden="true">/</span>
+        <input id="q" type="search" placeholder="Chercher un chapitre, une notion…" aria-label="Chercher dans le parcours">
+      </label>
+    </div>
+    <div class="weeks" id="weeks"></div>
+  </section>
+
+  <section id="view-matieres" hidden>
+    <div class="m-tabs" id="m-tabs" role="group" aria-label="Choisir une matière"></div>
+    <div id="m-detail"></div>
+  </section>
+
+  <section id="view-devoirs" hidden>
+    <div class="m-head">
+      <span class="eyebrow">Tous les rendus du semestre</span>
+      <h2>Les échéances, du plus proche au plus lointain</h2>
+    </div>
+    <div class="dv-head eyebrow">
+      <span>Date de rendu</span><span>Délai</span><span>Devoir</span><span>Rendu</span>
+    </div>
+    <div id="devoirs"></div>
+  </section>
+
+  <div class="legend">
+    <span class="lg"><span class="sw" style="background:var(--ultra)"></span>Semaine en cours</span>
+    <span class="lg"><span class="sw" style="background:var(--verm)"></span>Devoir à rendre</span>
+    <span class="lg"><span class="sw" style="background:var(--ok)"></span>Coché comme fait</span>
+    <span class="lg"><span class="sw" style="border:1px dashed var(--c-ep);background:var(--c-ep-bg)"></span>Planning estimé (EP)</span>
+    <span class="lg"><span class="sw" style="background-image:repeating-linear-gradient(135deg,var(--rule-2) 0 3px,transparent 3px 6px);border:1px solid var(--rule)"></span>Vacances</span>
+  </div>
+
+  <div class="foot" id="foot"></div>
+</main>
+
+<script id="planning" type="application/json">{"meta":{"formation":"Master 1 Informatique I2A - EAD","etablissement":"Université Marie et Louis Pasteur","annee_universitaire":"2026-2027","semestre":"S1","semaines_pedagogiques":12,"debut":"2026-10-05","fin_cours":"2027-01-17","revisions":"2027-01-18 au 2027-01-24","examens":"2027-01-25 au 2027-01-31","convention":"Chaque semaine démarre un lundi et se termine le dimanche suivant.","genere_le":"2026-10-13"},"matieres":{"agc":{"nom":"Algo sur Graphes et Combinatoires","source":"agc.html","planning_officiel":true},"alo":{"nom":"Archi Logicielles et à Objets","source":"alo.html","planning_officiel":true},"anglais":{"nom":"Anglais","source":"anglais.pdf","planning_officiel":true,"remarque":"Planning annuel par modules à dates glissantes, pas par semaine. Les modules 4 à 6 dépassent le S1."},"com":{"nom":"Communication","source":"com.pdf","planning_officiel":true,"remarque":"Le cours ne démarre qu'en semaine 7, car il réutilise les concepts de Synchronisation."},"ep":{"nom":"Evaluation de Programmes","source":"coursEP.pdf","planning_officiel":false,"enseignant":"Nicolas Vacelet","remarque":"Aucun parcours pédagogique fourni. Planning reconstruit à partir du plan du cours (5 chapitres, 71 pages de contenu) et calé sur le calendrier commun aux autres matières. Toutes les entrées EP portent le drapeau estime = true."},"reso":{"nom":"Réseaux","source":"reseaux.pdf","planning_officiel":true,"remarque":"Les trois devoirs sont facultatifs mais vivement conseillés."},"syn":{"nom":"Synchronisation","source":"syn.pdf","planning_officiel":true,"remarque":"Tout le contenu est concentré sur les semaines 1 à 6, le devoir unique clôturant le cours en semaine 7."}},"vacances":[{"nom":"Vacances de la Toussaint","debut":"2026-10-26","fin":"2026-11-01","remarque":"Le planning ALO indique la période du 21 au 31 octobre."},{"nom":"Vacances de Noël","debut":"2026-12-21","fin":"2027-01-03"}],"devoirs":[{"matiere":"agc","intitule":"Devoir 1","publie_semaine":5,"a_rendre":"2026-11-15","estime":false},{"matiere":"agc","intitule":"Devoir 2","publie_semaine":11,"a_rendre":"2027-01-10","estime":false},{"matiere":"alo","intitule":"Devoir 1","publie_semaine":5,"a_rendre":"2026-11-15","correction":"2026-11-22","estime":false},{"matiere":"alo","intitule":"Devoir 2","publie_semaine":11,"a_rendre":"2027-01-10","correction":"2027-01-17","estime":false},{"matiere":"anglais","intitule":"QCM de compréhension écrite (module 2)","publie_semaine":6,"a_rendre":"2026-12-14","note":"sur 20, coefficient 1","estime":false},{"matiere":"com","intitule":"Devoir 1 : sockets","publie_semaine":10,"a_rendre":"2026-12-14T08:00","estime":false},{"matiere":"com","intitule":"Devoir 2 : REST / WebSockets","publie_semaine":13,"a_rendre":"2027-01-18T08:00","estime":false},{"matiere":"ep","intitule":"Devoir 1 : calculabilité et décidabilité (chapitres 1 à 3)","publie_semaine":5,"a_rendre":"2026-11-22","estime":true,"justification":"Calé sur le rythme AGC et ALO, qui publient tous deux leur devoir 1 en semaine 5. Deux semaines de rendu permettent de couvrir le théorème de Rice vu en semaine 6, et évitent le pic du 15 novembre où ALO et Réseaux sont déjà à rendre."},{"matiere":"ep","intitule":"Devoir 2 : complexité et NP-complétude (chapitres 4 et 5)","publie_semaine":11,"a_rendre":"2027-01-17","estime":true,"justification":"Calé sur AGC et ALO, qui publient tous deux leur devoir 2 en semaine 11. Le rendu en fin de semaine 12 suit le groupe des échéances de janvier (Réseaux le 13, ALO le 10, Communication le 18)."},{"matiere":"reso","intitule":"Devoir 1 : Introduction au réseau","publie_semaine":5,"a_rendre":"2026-11-15","correction":"semaine 6","facultatif":true,"estime":false},{"matiere":"reso","intitule":"Devoir 2 : La numérotation IP et le routage","publie_semaine":8,"a_rendre":"2026-12-06","correction":"semaine 9","facultatif":true,"estime":false},{"matiere":"reso","intitule":"Devoir 3 : Les réseaux sans fil, la sécurité et application pratique","publie_semaine":12,"a_rendre":"2027-01-13","correction":"semaine 12","facultatif":true,"estime":false},{"matiere":"syn","intitule":"Devoir","publie_semaine":7,"a_rendre":"2026-11-23T08:00","estime":false}],"semaines":[{"numero":1,"debut":"2026-10-05","fin":"2026-10-11","type":"cours","matieres":{"agc":{"chapitre":"1","titre":"Graphes et algorithmes","contenu":["Introduction","Représentation des graphes","Chemins et parcours"],"devoirs":[]},"alo":{"chapitre":"1","titre":"Objet","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Accueil","titre":"Getting to know each other","contenu":["Période d'accueil du 5 au 19 octobre 2026","Activités pour briser la glace","Aucune évaluation"],"devoirs":[]},"com":null,"ep":{"chapitre":"1","titre":"Introduction","pages":"6-15","contenu":["Problème : problèmes de décision et problèmes d'optimisation","Algorithme et programme","Existe-t-il un algorithme pour chaque problème : le problème de pavage","Décidable / indécidable","Problèmes traitables et non traitables","La grande carte de l'informatique théorique"],"devoirs":[],"estime":true},"reso":{"chapitre":"Présentation des réseaux","titre":"Présentation des réseaux","contenu":["Les différents types de réseaux et les technologies sous-jacentes"],"exercices":[],"devoirs":[]},"syn":{"chapitre":"1","titre":"Programmation multi-thread en Java : premiers pas","contenu":[],"devoirs":[]}}},{"numero":2,"debut":"2026-10-12","fin":"2026-10-18","type":"cours","matieres":{"agc":{"chapitre":"1","titre":"Graphes et algorithmes","contenu":["Recherche de plus courts chemins"],"devoirs":[]},"alo":{"chapitre":"2","titre":"UML","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Accueil","titre":"Getting to know each other","contenu":["Suite de la période d'accueil, jusqu'au 19 octobre"],"devoirs":[]},"com":null,"ep":{"chapitre":"2","titre":"Les machines de Turing (première partie)","pages":"16-23","contenu":["Vocabulaire de base : alphabet, mot, langage","Présentation intuitive puis définition formelle","Configurations et étapes de calcul","Mots et langages reconnus","Langages et fonctions décidables"],"devoirs":[],"estime":true},"reso":{"chapitre":"Concepts de base","titre":"Concepts de base","contenu":["Concepts de base utilisés dans les télécommunications"],"exercices":[],"devoirs":[]},"syn":{"chapitre":"2","titre":"Synchronisation entre processus","contenu":[],"devoirs":[]}}},{"numero":3,"debut":"2026-10-19","fin":"2026-10-25","type":"cours","matieres":{"agc":{"chapitre":"1","titre":"Graphes et algorithmes","contenu":["Connexité, arbres et arbres couvrants"],"devoirs":[]},"alo":{"chapitre":"2","titre":"UML","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 1","titre":"Participation et prise en main","contenu":["Module du 19 octobre au 16 novembre 2026","Évaluation : participation active aux activités dans les forums","Aucun devoir à rendre"],"devoirs":[]},"com":null,"ep":{"chapitre":"2","titre":"Les machines de Turing (seconde partie)","pages":"23-30","contenu":["Variations : machine à plusieurs rubans, machine non déterministe","La thèse de Church-Turing","Machines de Turing comme énumérateurs","La machine de Turing universelle : un programme est une donnée","La hiérarchie de Chomsky"],"devoirs":[],"estime":true},"reso":{"chapitre":"Les réseaux locaux","titre":"Les réseaux locaux","contenu":["Ethernet et les technologies LAN"],"exercices":[],"devoirs":[]},"syn":{"chapitre":"2","titre":"Synchronisation entre processus","contenu":[],"devoirs":[]}}},{"numero":null,"debut":"2026-10-26","fin":"2026-11-01","type":"vacances","libelle":"Vacances de la Toussaint","matieres":{}},{"numero":4,"debut":"2026-11-02","fin":"2026-11-08","type":"cours","matieres":{"agc":{"chapitre":"2","titre":"Programmation linéaire","contenu":["Formulation du problème"],"devoirs":[]},"alo":{"chapitre":"3","titre":"Java","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 1","titre":"Participation et prise en main","contenu":["Participation dans les forums"],"devoirs":[]},"com":null,"ep":{"chapitre":"3","titre":"Décidabilité et indécidabilité (première partie)","pages":"31-35","contenu":["Rappel de la thèse de Church-Turing","Langages et problèmes décidables, propriétés de fermeture","Codage des machines de Turing","Le langage diagonal Ld et l'argument diagonal"],"devoirs":[],"estime":true},"reso":{"chapitre":"TPC/IP","titre":"TCP/IP","contenu":["UDP","TCP","Autres protocoles"],"exercices":[],"devoirs":[]},"syn":{"chapitre":"2-3","titre":"Synchronisation entre processus / en Java","contenu":[],"devoirs":[]}}},{"numero":5,"debut":"2026-11-09","fin":"2026-11-15","type":"cours","matieres":{"agc":{"chapitre":"2","titre":"Programmation linéaire","contenu":["Simplexe"],"devoirs":["Devoir 1"]},"alo":{"chapitre":"Devoir","titre":"Devoir 1","contenu":[],"devoirs":["Devoir 1, à rendre le 15/11"]},"anglais":{"chapitre":"Module 1","titre":"Participation et prise en main","contenu":["Fin du module 1 le 16 novembre"],"devoirs":[]},"com":null,"ep":{"chapitre":"3","titre":"Décidabilité et indécidabilité (seconde partie)","pages":"35-41","contenu":["Réductions entre problèmes","Le problème de l'acceptation (problème universel)","Le problème de l'arrêt","Semi-décidabilité, classe co-RE et hiérarchie R / RE / co-RE"],"devoirs":["Devoir 1 publié, à rendre le 22/11"],"estime":true},"reso":{"chapitre":"Numérotation IP (partie 1)","titre":"Numérotation IP (partie 1)","contenu":["IPv4 et adresses IP","Configuration IP","Matériels","Sous-réseaux"],"exercices":["exo1_num.pdf à exo9_num.pdf"],"devoirs":["Devoir 1, à rendre le 15/11"]},"syn":{"chapitre":"3","titre":"Synchronisation en Java","contenu":[],"devoirs":[]}}},{"numero":6,"debut":"2026-11-16","fin":"2026-11-22","type":"cours","matieres":{"agc":{"chapitre":"3","titre":"Programmation dynamique","contenu":["Mémoïsation, structure de la solution optimale"],"devoirs":[]},"alo":{"chapitre":"4","titre":"Conception","contenu":[],"devoirs":["Correction du devoir 1 rendue le 22/11 si possible"]},"anglais":{"chapitre":"Module 2","titre":"Compréhension écrite","contenu":["Module du 16 novembre au 14 décembre 2026","Évaluation : participation dans les forums","QCM de compréhension écrite, note sur 20 coefficient 1","Compétence : lire"],"devoirs":["QCM de compréhension écrite, avant le 14/12"]},"com":null,"ep":{"chapitre":"3","titre":"Décidabilité et indécidabilité (fin)","pages":"41-44","contenu":["Le théorème de Rice et ses conséquences pratiques","Bilan du chapitre","Exercices de la section 3.8"],"devoirs":["Devoir 1 à rendre le 22/11"],"estime":true},"reso":{"chapitre":"Numérotation IP (partie 2)","titre":"Numérotation IP (partie 2)","contenu":[],"exercices":[],"devoirs":["Correction du devoir 1"]},"syn":{"chapitre":"3","titre":"Synchronisation en Java","contenu":[],"devoirs":[]}}},{"numero":7,"debut":"2026-11-23","fin":"2026-11-29","type":"cours","matieres":{"agc":{"chapitre":"3","titre":"Programmation dynamique","contenu":["Solution de programmation dynamique"],"devoirs":[]},"alo":{"chapitre":"4","titre":"Conception","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 2","titre":"Compréhension écrite","contenu":["Participation dans les forums"],"devoirs":[]},"com":{"chapitre":"1","titre":"Communication avec les sockets","contenu":[],"devoirs":[]},"ep":{"chapitre":"4","titre":"Classes de complexité (première partie)","pages":"45-49","contenu":["Pourquoi mesurer la complexité","Calculer la complexité","La notation grand-O et les règles de comptage","Comparaison d'algorithmes"],"devoirs":[],"estime":true},"reso":{"chapitre":"Le routage (partie 1)","titre":"Le routage (partie 1)","contenu":["Principe du routage","Types de routage"],"exercices":["exo1_routage.pdf à exo4_routage.pdf"],"devoirs":[]},"syn":{"chapitre":"Devoir","titre":"Devoir","contenu":[],"devoirs":["Devoir unique, à rendre le lundi 23 novembre 2026 à 8h"]}}},{"numero":8,"debut":"2026-11-30","fin":"2026-12-06","type":"cours","matieres":{"agc":{"chapitre":"4","titre":"Programmation gloutonne","contenu":["Arbre couvrant / choix d'activités en programmation dynamique"],"devoirs":[]},"alo":{"chapitre":"5","titre":"Patron","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 2","titre":"Compréhension écrite","contenu":["Participation dans les forums"],"devoirs":[]},"com":{"chapitre":"2","titre":"Communication avec les sockets","contenu":[],"devoirs":[]},"ep":{"chapitre":"4","titre":"Classes de complexité (deuxième partie)","pages":"49-53","contenu":["Complexité d'une machine de Turing : compter les étapes et les cases","Cas des machines non déterministes","Les quatre grandes familles de classes","P, NP et co-NP, illustrés par le Sudoku","La thèse de l'invariance"],"devoirs":[],"estime":true},"reso":{"chapitre":"Le routage (partie 2)","titre":"Le routage (partie 2)","contenu":["Règles d'accès"],"exercices":[],"devoirs":["Devoir 2, à rendre le 06/12"]},"syn":null}},{"numero":9,"debut":"2026-12-07","fin":"2026-12-13","type":"cours","matieres":{"agc":{"chapitre":"4","titre":"Programmation gloutonne","contenu":["Solution gloutonne au choix d'activités"],"devoirs":[]},"alo":{"chapitre":"5","titre":"Patron","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 2","titre":"Compréhension écrite","contenu":["Fin du module 2 le 14 décembre"],"devoirs":[]},"com":{"chapitre":"3","titre":"Développement d'application avec les sockets","contenu":[],"devoirs":[]},"ep":{"chapitre":"4","titre":"Classes de complexité (fin)","pages":"53-59","contenu":["La hiérarchie des vitesses et le théorème de hiérarchie temporelle","Le théorème de Savitch : espace déterministe contre non déterministe","Intuition : la technique de bissection","Exercices de la section 4.8 et résumé général"],"devoirs":[],"estime":true},"reso":{"chapitre":"Les réseaux sans fil (partie 1)","titre":"Les réseaux sans fil (partie 1)","contenu":["GSM","GPRS","UMTS"],"exercices":["exo1-sansfil.pdf"],"devoirs":["Correction du devoir 2"]},"syn":null}},{"numero":10,"debut":"2026-12-14","fin":"2026-12-20","type":"cours","matieres":{"agc":{"chapitre":"5","titre":"Cycle eulérien et hamiltonien","contenu":["Cycles eulériens et chinois"],"devoirs":[]},"alo":{"chapitre":"6","titre":"Architecture","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 3","titre":"Continuation et échange","contenu":["Module du 14 décembre 2026 au 18 janvier 2027","Évaluation : participation dans les forums","Aucun devoir à rendre"],"devoirs":[]},"com":{"chapitre":"3","titre":"Web Services REST","contenu":[],"devoirs":["Devoir 1 (sockets), à rendre avant le lundi 14 décembre 2026 à 8h"]},"ep":{"chapitre":"5","titre":"P vs NP (première partie)","pages":"60-67","contenu":["Retour sur P et NP, pourquoi la question est importante","Problèmes NP-complets et transformations polynomiales","NP-difficile contre NP-complet","SAT, le premier problème NP-complet : rappels de logique, forme normale conjonctive","Le théorème de Cook-Levin (1971) et la variante 3-SAT"],"devoirs":[],"estime":true},"reso":{"chapitre":"Les réseaux sans fil (partie 2)","titre":"Les réseaux sans fil (partie 2)","contenu":["Wifi et Bluetooth","Réseaux ad-hoc"],"exercices":["exo2-sansfil.pdf"],"devoirs":[],"remarque":"Le PDF indique par erreur la période du 13/12 au 20/12."},"syn":null}},{"numero":null,"debut":"2026-12-21","fin":"2027-01-03","type":"vacances","libelle":"Vacances de Noël","matieres":{}},{"numero":11,"debut":"2027-01-04","fin":"2027-01-10","type":"cours","matieres":{"agc":{"chapitre":"5","titre":"Cycle eulérien et hamiltonien","contenu":["Cycles hamiltoniens et voyageur de commerce"],"devoirs":["Devoir 2"]},"alo":{"chapitre":"Devoir","titre":"Devoir 2","contenu":[],"devoirs":["Devoir 2, à rendre le 10/01"]},"anglais":{"chapitre":"Module 3","titre":"Continuation et échange","contenu":["Participation dans les forums"],"devoirs":[]},"com":{"chapitre":"3","titre":"Web Services REST","contenu":[],"devoirs":[]},"ep":{"chapitre":"5","titre":"P vs NP (deuxième partie)","pages":"67-70","contenu":["La galaxie des problèmes NP-complets : voyageur de commerce, sac à dos, coloration de graphe, clique","Comment prouver qu'un problème est NP-complet","Exemple complet de réduction : Clique <=p Ensemble Indépendant","Les stratégies face à la NP-complétude"],"devoirs":["Devoir 2 publié, à rendre le 17/01"],"estime":true,"remarque":"Le voyageur de commerce est vu la même semaine en AGC, les deux cours se renforcent."},"reso":{"chapitre":"Sécurité (partie 1)","titre":"Sécurité (partie 1)","contenu":["Algorithme sur la sécurité","Chiffrement"],"exercices":[],"devoirs":[]},"syn":null}},{"numero":12,"debut":"2027-01-11","fin":"2027-01-17","type":"cours","matieres":{"agc":{"chapitre":"--","titre":"Révisions","contenu":[],"devoirs":[]},"alo":{"chapitre":"Révision","titre":"Révision","contenu":[],"devoirs":["Correction du devoir 2 rendue le 17/01 si possible"]},"anglais":{"chapitre":"Module 3","titre":"Continuation et échange","contenu":["Fin du module 3 le 18 janvier"],"devoirs":[]},"com":{"chapitre":"4","titre":"Web Sockets","contenu":[],"devoirs":[]},"ep":{"chapitre":"5","titre":"P vs NP (fin)","pages":"70-76","contenu":["Au-delà de NP : problèmes NP-intermédiaires et théorème de Ladner","La hiérarchie polynomiale","L'état de la question : où en est-on","Quiz final et exercices, sections 5.8 et 5.9","Conclusion du cours"],"devoirs":["Devoir 2 à rendre le 17/01"],"estime":true},"reso":{"chapitre":"Sécurité (partie 2)","titre":"Sécurité (partie 2)","contenu":["Les protocoles de sécurité"],"exercices":["exo1_secu.pdf","exo2_secu.pdf"],"devoirs":["Devoir 3, à rendre le 13/01","Correction du devoir 3"]},"syn":null}},{"numero":13,"debut":"2027-01-18","fin":"2027-01-24","type":"revisions","matieres":{"agc":null,"alo":{"chapitre":"Révision","titre":"Révision","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 4","titre":"Expression orale","contenu":["Module du 18 janvier au 22 février 2027, déborde sur le S2","Évaluation : participation dans les forums","Devoir vocal au format MP3, note sur 20 coefficient 1","Compétence : parler"],"devoirs":["Devoir vocal MP3"]},"com":{"chapitre":"--","titre":"Révisions","contenu":[],"devoirs":["Devoir 2 (REST / WebSockets), à rendre avant le lundi 18 janvier 2027 à 8h"]},"ep":{"chapitre":"--","titre":"Révisions","contenu":["Reprise des quiz rapides et des exercices des chapitres 3, 4 et 5","Revoir les techniques de réduction, qui sont au cœur des chapitres 3 et 5"],"devoirs":[],"estime":true},"reso":null,"syn":null}},{"numero":14,"debut":"2027-01-25","fin":"2027-01-31","type":"examens","matieres":{"agc":null,"alo":{"chapitre":"Examen","titre":"Examen","contenu":[],"devoirs":[]},"anglais":{"chapitre":"Module 4","titre":"Expression orale","contenu":["Poursuite du module 4"],"devoirs":[]},"com":{"chapitre":"Examen","titre":"Examens","contenu":[],"devoirs":[]},"ep":{"chapitre":"Examen","titre":"Examen","contenu":[],"devoirs":[],"estime":true},"reso":null,"syn":{"chapitre":"Examen","titre":"Examens","contenu":[],"devoirs":[]}}}],"hors_semestre":{"anglais":[{"module":"Module 4","titre":"Expression orale","debut":"2027-01-18","fin":"2027-02-22","evaluation":"Participation dans les forums et devoir vocal MP3, note sur 20 coefficient 1","competences":"Parler"},{"module":"Module 5","titre":"Projet vidéo","debut":"2027-02-22","fin":"2027-04-05","evaluation":"Participation dans les forums et devoir vidéo MP4, note sur 20 coefficient 1","competences":"Écrire / Parler"},{"module":"Module 6","titre":"Test final sur plateforme","debut":"2027-04-05","fin":"2027-05-03","evaluation":"Participation dans les forums et test QCM sur Moodle","competences":"Lire / Écouter"},{"evenement":"Fin de l'année scolaire en anglais","date":"2027-05-04"},{"evenement":"Session de seconde chance","debut":"2027-06-28","fin":"2027-07-04","remarque":"Réservée aux étudiants n'ayant pas obtenu une moyenne de 10/20. Un devoir supplémentaire est à rendre."},{"evenement":"Note annuelle de participation","remarque":"Cinquième note attribuée selon la participation aux forums, sur quatre critères : nombre de modules suivis, régularité, interaction avec les autres, longueur des publications."}]}}</script>
+<script>
+(function(){
+  'use strict';
+  var DATA = JSON.parse(document.getElementById('planning').textContent);
+  var MAT = DATA.matieres;
+  var ORDER = Object.keys(MAT);
+  var SHORT = {agc:'AGC', alo:'ALO', anglais:'ANG', com:'COM', ep:'EP', reso:'RESO', syn:'SYN'};
+  var MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var MONTHS_S = ['jan','fév','mar','avr','mai','juin','juil','août','sep','oct','nov','déc'];
+  var DAYS_S = ['dim','lun','mar','mer','jeu','ven','sam'];
+  var WEEKS = DATA.semaines;
+
+  /* ---------- dates ---------- */
+  function d(iso){ var p = String(iso).slice(0,10).split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
+  var TODAY = (function(){ var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); })();
+  function fullDate(iso){ var x = d(iso); return DAYS_S[x.getDay()]+' '+x.getDate()+' '+MONTHS[x.getMonth()]+' '+x.getFullYear(); }
+  function range(a,b){
+    var x = d(a), y = d(b);
+    var left = DAYS_S[x.getDay()]+' '+x.getDate()+(x.getMonth()!==y.getMonth() ? ' '+MONTHS_S[x.getMonth()] : '');
+    return left+' → '+DAYS_S[y.getDay()]+' '+y.getDate()+' '+MONTHS_S[y.getMonth()];
+  }
+  function daysTo(iso){ return Math.round((d(iso) - TODAY) / 86400000); }
+  function delay(n){
+    if(n === 0) return "aujourd'hui";
+    if(n === 1) return 'demain';
+    if(n < 0) return 'passé';
+    if(n < 14) return 'dans '+n+' j';
+    return 'dans '+Math.round(n/7)+' sem';
+  }
+  function at8(iso){ return String(iso).indexOf('T08:00') > -1; }
+  var CUR = (function(){
+    for(var i=0;i<WEEKS.length;i++){ if(TODAY >= d(WEEKS[i].debut) && TODAY <= d(WEEKS[i].fin)) return i; }
+    return TODAY < d(WEEKS[0].debut) ? 0 : WEEKS.length - 1;
+  })();
+  var IN_TERM = TODAY >= d(WEEKS[0].debut) && TODAY <= d(WEEKS[WEEKS.length-1].fin);
+
+  var DEVOIRS = DATA.devoirs.slice().sort(function(a,b){ return a.a_rendre < b.a_rendre ? -1 : a.a_rendre > b.a_rendre ? 1 : 0; });
+  function weekDues(w){
+    var n = 0;
+    ORDER.forEach(function(k){
+      var e = w.matieres && w.matieres[k];
+      if(e && e.devoirs) n += e.devoirs.length;
+    });
+    return n;
+  }
+
+  /* ---------- keys ---------- */
+  function sKey(w, k){ return 's_' + w.debut + '_' + k; }
+  function dKey(x){ return 'd_' + x.matiere + '_' + String(x.a_rendre).slice(0,10); }
+  var ALL_S = [];
+  WEEKS.forEach(function(w){
+    if(w.type === 'vacances') return;
+    ORDER.forEach(function(k){ if(w.matieres && w.matieres[k]) ALL_S.push(sKey(w, k)); });
+  });
+  var ALL_D = DEVOIRS.map(dKey);
+
+  /* ---------- progress store ---------- */
+  var LS = 'parcours-i2a-s1';
+  var PROG = Object.create(null);
+  function loadLS(){ try{ return JSON.parse(localStorage.getItem(LS)) || {}; }catch(e){ return {}; } }
+  var saved = loadLS();
+  (Array.isArray(saved.prog) ? saved.prog : []).forEach(function(k){ PROG[k] = true; });
+
+  var state = {
+    view: ['semaines','matieres','devoirs'].indexOf(saved.view) >= 0 ? saved.view : 'semaines',
+    off: new Set(Array.isArray(saved.off) ? saved.off.filter(function(k){ return MAT[k]; }) : []),
+    mat: MAT[saved.mat] ? saved.mat : ORDER[0],
+    theme: saved.theme === 'dark' || saved.theme === 'light' ? saved.theme : null,
+    hideDone: saved.hideDone === true,
+    q: ''
+  };
+  if(state.theme){ document.documentElement.setAttribute('data-theme', state.theme); }
+
+  function keys(){ return Object.keys(PROG); }
+  function saveLS(){
+    try{
+      localStorage.setItem(LS, JSON.stringify({
+        view: state.view, off: Array.from(state.off), mat: state.mat,
+        theme: state.theme, hideDone: state.hideDone, prog: keys()
+      }));
+    }catch(e){}
+  }
+  function isDone(k){ return PROG[k] === true; }
+
+  /* remote mirror: each viewer's own private subtree */
+  var remote = {ref:null, writing:false, dirty:false, primed:false, unsub:null};
+  function pushRemote(){
+    if(!remote.ref) return;
+    if(remote.writing){ remote.dirty = true; return; }
+    remote.writing = true;
+    var body = {items: keys()};
+    remote.ref.set(body).then(function(){
+      remote.writing = false;
+      if(remote.dirty){ remote.dirty = false; pushRemote(); }
+    }, function(){
+      remote.writing = false;
+      remote.dirty = false;
+      setSync(false, 'Progression enregistrée dans ce navigateur seulement');
+    });
+  }
+  function adopt(list){
+    PROG = Object.create(null);
+    (Array.isArray(list) ? list : []).forEach(function(k){ if(typeof k === 'string') PROG[k] = true; });
+    saveLS();
+    refresh(true);
+  }
+  function setDone(k, on){
+    if(on) PROG[k] = true; else delete PROG[k];
+    saveLS();
+    pushRemote();
+    refresh(state.hideDone);
+  }
+
+  function initRemote(){
+    if(!(window.claude && typeof window.claude.use === 'function')) return;
+    Promise.all([window.claude.use('db'), window.claude.use('user')]).then(function(r){
+      var db = r[0], user = r[1];
+      if(!db || !user) return;
+      return user.id().then(function(uid){
+        if(!uid) return;
+        remote.ref = db.doc('data/users/' + uid + '/progress');
+        setSync(true, 'Progression synchronisée sur votre compte Claude');
+        remote.unsub = remote.ref.onSnapshot(function(snap){
+          var body = snap.exists ? snap.data() : null;
+          if(!remote.primed){
+            remote.primed = true;
+            if(!body || !Array.isArray(body.items)){
+              if(keys().length) pushRemote();
+              return;
+            }
+            adopt(body.items);
+            return;
+          }
+          if(snap.metadata.hasPendingWrites || remote.writing || remote.dirty) return;
+          if(body && Array.isArray(body.items)) adopt(body.items);
+        }, function(){
+          setSync(false, 'Progression enregistrée dans ce navigateur seulement');
+          remote.ref = null;
+        });
+      });
+    }).catch(function(){});
+  }
+  var syncState = {on:false, msg:'Progression enregistrée dans ce navigateur'};
+  function setSync(on, msg){ syncState.on = on; syncState.msg = msg; renderFoot(); }
+
+  /* ---------- dom helpers ---------- */
+  function el(tag, cls, txt){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(txt != null) n.textContent = txt;
+    return n;
+  }
+  function tint(node, k){
+    node.style.setProperty('--sc', 'var(--c-'+k+')');
+    node.style.setProperty('--sc-bg', 'var(--c-'+k+'-bg)');
+  }
+  function chip(k){
+    var c = el('span', 'code', SHORT[k] || k.toUpperCase());
+    tint(c, k);
+    return c;
+  }
+  function checkbox(scope, key, label){
+    var lab = el('label', 'chk' + (scope === 'w' ? ' foot' : ''));
+    var inp = document.createElement('input');
+    inp.type = 'checkbox';
+    inp.id = 'chk-' + scope + '-' + key;
+    inp.checked = isDone(key);
+    inp.addEventListener('change', function(){ setDone(key, inp.checked); });
+    lab.appendChild(inp);
+    lab.appendChild(el('span', 'chk-t', label));
+    return lab;
+  }
+
+  /* ---------- registries refreshed on every change ---------- */
+  var railProg = [];
+  var tiles = {};
+
+  function refresh(rerender){
+    document.querySelectorAll('[data-key]').forEach(function(n){
+      var k = n.getAttribute('data-key');
+      var on = isDone(k);
+      var inp = n.querySelector('input[type="checkbox"]');
+      if(inp && inp.checked !== on) inp.checked = on;
+      n.classList.toggle(n.classList.contains('dv') ? 'rendu' : 'done', on);
+    });
+    railProg.forEach(function(r){
+      var n = r.keys.filter(isDone).length;
+      r.node.textContent = n + '/' + r.keys.length;
+      r.node.classList.toggle('full', n === r.keys.length);
+      r.node.hidden = (n === 0);
+    });
+    renderTiles();
+    renderRuler();
+    renderMatTabs();
+    if(rerender){ renderWeeks(); }
+  }
+
+  /* ---------- now strip ---------- */
+  function renderTiles(){
+    var doneS = ALL_S.filter(isDone).length, doneD = ALL_D.filter(isDone).length;
+    if(tiles.sLab){
+      tiles.sLab.textContent = doneS + ' / ' + ALL_S.length;
+      tiles.sBar.style.width = (ALL_S.length ? Math.round(doneS/ALL_S.length*100) : 0) + '%';
+      tiles.dLab.textContent = doneD + ' / ' + ALL_D.length;
+      tiles.dBar.style.width = (ALL_D.length ? Math.round(doneD/ALL_D.length*100) : 0) + '%';
+    }
+    if(tiles.nextBox) renderNextDue(tiles.nextBox);
+  }
+  function nextDue(){
+    var pend = DEVOIRS.filter(function(x){ return !isDone(dKey(x)); });
+    var future = pend.filter(function(x){ return daysTo(x.a_rendre) >= 0; });
+    return future[0] || pend[0] || null;
+  }
+  function renderNextDue(box){
+    box.textContent = '';
+    var x = nextDue();
+    if(!x){
+      box.appendChild(el('div','tile-big','Tous les devoirs sont rendus'));
+      box.appendChild(el('div','tile-sub', ALL_D.length + ' rendus cochés sur le semestre'));
+      return;
+    }
+    var late = daysTo(x.a_rendre) < 0;
+    box.appendChild(el('div','tile-big', x.intitule));
+    box.appendChild(el('div','tile-sub', MAT[x.matiere].nom + ' · ' + fullDate(x.a_rendre) + (at8(x.a_rendre) ? ' à 8h' : '')));
+    box.appendChild(el('span','count', late ? 'en retard' : delay(daysTo(x.a_rendre))));
+  }
+  function renderNow(){
+    var host = document.getElementById('now-strip');
+    host.textContent = '';
+    var w = WEEKS[CUR];
+    var t1 = el('div','tile lead');
+    t1.appendChild(el('span','eyebrow', IN_TERM ? (w.type === 'vacances' ? 'En ce moment' : 'Semaine en cours') : 'Prochaine étape'));
+    t1.appendChild(el('div','tile-big', w.type === 'vacances' ? w.libelle : (w.numero != null ? 'Semaine '+w.numero : w.type)));
+    t1.appendChild(el('div','tile-sub', range(w.debut, w.fin)));
+    var line = el('div','chipline');
+    ORDER.forEach(function(k){ if(w.matieres && w.matieres[k]) line.appendChild(chip(k)); });
+    if(line.childNodes.length) t1.appendChild(line);
+    host.appendChild(t1);
+
+    var t2 = el('div','tile due-tile');
+    t2.appendChild(el('span','eyebrow','Prochain rendu'));
+    tiles.nextBox = el('div','prog-row');
+    t2.appendChild(tiles.nextBox);
+    host.appendChild(t2);
+
+    var t3 = el('div','tile');
+    t3.appendChild(el('span','eyebrow','Ce que vous avez fait'));
+    [['Séances','s'],['Devoirs rendus','d']].forEach(function(p){
+      var row = el('div','prog-row');
+      var lab = el('div','prog-lab');
+      lab.appendChild(el('span', null, p[0]));
+      var val = el('span','mono','0 / 0');
+      lab.appendChild(val);
+      row.appendChild(lab);
+      var bar = el('div','bar');
+      var fill = el('i');
+      fill.style.width = '0%';
+      bar.appendChild(fill);
+      row.appendChild(bar);
+      t3.appendChild(row);
+      if(p[1] === 's'){ tiles.sLab = val; tiles.sBar = fill; } else { tiles.dLab = val; tiles.dBar = fill; }
+    });
+    t3.appendChild(el('div','tile-sub','Examens du 25 au 31 janvier 2027'));
+    host.appendChild(t3);
+  }
+
+  /* ---------- ruler ---------- */
+  function renderRuler(){
+    var host = document.getElementById('ruler');
+    host.textContent = '';
+    WEEKS.forEach(function(w, i){
+      var holiday = w.type === 'vacances';
+      var ks = holiday ? [] : ORDER.filter(function(k){ return w.matieres && w.matieres[k]; }).map(function(k){ return sKey(w, k); });
+      var allDone = ks.length > 0 && ks.every(isDone);
+      var b = el('button', 'tick'
+        + (holiday ? ' hol' : '')
+        + (i === CUR && IN_TERM ? ' now' : (allDone ? ' full' : (!holiday && TODAY > d(w.fin) ? ' past' : ''))));
+      b.type = 'button';
+      if(holiday){
+        b.setAttribute('aria-hidden','true');
+        b.tabIndex = -1;
+        b.title = w.libelle;
+      } else {
+        b.textContent = w.numero != null ? String(w.numero) : (w.type === 'examens' ? 'EX' : 'RÉ');
+        b.title = (w.numero != null ? 'Semaine '+w.numero+' · ' : '') + range(w.debut, w.fin)
+          + ' · ' + ks.filter(isDone).length + '/' + ks.length + ' fait';
+        b.setAttribute('aria-label', b.title);
+        if(weekDues(w)) b.appendChild(el('span','pin'));
+        b.addEventListener('click', function(){
+          setView('semaines');
+          var target = document.getElementById('wk-'+i);
+          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      }
+      host.appendChild(b);
+    });
+  }
+
+  /* ---------- filters ---------- */
+  function renderFilters(){
+    var host = document.getElementById('filters');
+    host.textContent = '';
+    ORDER.forEach(function(k){
+      var b = el('button','fchip', SHORT[k] || k);
+      b.type = 'button';
+      b.id = 'f-'+k;
+      tint(b, k);
+      b.setAttribute('aria-pressed', state.off.has(k) ? 'false' : 'true');
+      b.title = MAT[k].nom;
+      b.addEventListener('click', function(){
+        if(state.off.has(k)) state.off.delete(k); else state.off.add(k);
+        b.setAttribute('aria-pressed', state.off.has(k) ? 'false' : 'true');
+        saveLS();
+        renderWeeks();
+      });
+      host.appendChild(b);
+    });
+  }
+
+  /* ---------- subject card ---------- */
+  function hay(k, e){
+    var bits = [MAT[k].nom, k, e.chapitre, e.titre].concat(e.contenu || [], e.exercices || [], e.devoirs || [], e.remarque ? [e.remarque] : []);
+    return bits.join(' ').toLowerCase();
+  }
+  function body(n, k, e){
+    if(e.contenu && e.contenu.length){
+      var ul = el('ul');
+      e.contenu.forEach(function(x){ ul.appendChild(el('li', null, x)); });
+      n.appendChild(ul);
+    }
+    if(e.exercices){ e.exercices.forEach(function(x){ n.appendChild(el('div','ex', x)); }); }
+    if(e.devoirs){ e.devoirs.forEach(function(x){
+      var r = el('div','due');
+      r.appendChild(el('span','bullet','▸'));
+      r.appendChild(el('span', null, x));
+      n.appendChild(r);
+    }); }
+    if(e.remarque){
+      var note = el('div','note');
+      note.appendChild(el('b','note'));
+      note.appendChild(el('span', null, e.remarque));
+      n.appendChild(note);
+    }
+  }
+  function card(w, k, e){
+    var key = sKey(w, k);
+    var n = el('div','sc' + (e.estime ? ' est' : '') + (isDone(key) ? ' done' : ''));
+    n.setAttribute('data-key', key);
+    tint(n, k);
+    var head = el('div','sc-head');
+    head.appendChild(chip(k));
+    if(e.chapitre && e.chapitre !== '--' && e.chapitre !== e.titre){
+      head.appendChild(el('span','sc-ch', /^[0-9-]+$/.test(e.chapitre) ? 'ch. '+e.chapitre : e.chapitre));
+    }
+    if(e.pages) head.appendChild(el('span','sc-ch','p. '+e.pages));
+    if(e.estime) head.appendChild(el('span','est-tag','estimé'));
+    n.appendChild(head);
+    n.appendChild(el('div','sc-title', e.titre));
+    body(n, k, e);
+    n.appendChild(checkbox('w', key, 'fait'));
+    return n;
+  }
+
+  /* ---------- weeks ---------- */
+  function renderWeeks(){
+    var host = document.getElementById('weeks');
+    host.textContent = '';
+    railProg = [];
+    var q = state.q.trim().toLowerCase();
+    var shown = 0;
+    WEEKS.forEach(function(w, i){
+      if(w.type === 'vacances'){
+        if(q) return;
+        var h = el('div','hol');
+        h.appendChild(el('span','eyebrow','Pause'));
+        h.appendChild(el('h3', null, w.libelle));
+        h.appendChild(el('span','wk-dates', range(w.debut, w.fin)));
+        if(w.remarque) h.appendChild(el('span','note', w.remarque));
+        host.appendChild(h);
+        return;
+      }
+      var present = ORDER.filter(function(k){ return w.matieres && w.matieres[k]; });
+      var keysAll = present.map(function(k){ return sKey(w, k); });
+      var vis = present.filter(function(k){
+        var e = w.matieres[k];
+        if(state.off.has(k)) return false;
+        if(state.hideDone && isDone(sKey(w, k))) return false;
+        if(q && hay(k, e).indexOf(q) < 0) return false;
+        return true;
+      });
+      if(!vis.length) return;
+      shown += vis.length;
+
+      var row = el('div','wk' + (i === CUR && IN_TERM ? ' now-wk' : ''));
+      row.id = 'wk-'+i;
+      var rail = el('div','wk-rail');
+      rail.appendChild(el('div','wk-no', w.numero != null ? (w.numero < 10 ? '0'+w.numero : String(w.numero)) : '—'));
+      rail.appendChild(el('div','wk-dates', range(w.debut, w.fin)));
+      if(i === CUR && IN_TERM) rail.appendChild(el('span','wk-tag live','en cours'));
+      else if(w.type === 'examens') rail.appendChild(el('span','wk-tag exam','examens'));
+      else if(w.type === 'revisions') rail.appendChild(el('span','wk-tag','révisions'));
+      var pr = el('span','wk-prog','0/0');
+      rail.appendChild(pr);
+      railProg.push({node:pr, keys:keysAll});
+      row.appendChild(rail);
+
+      var cards = el('div','cards');
+      vis.forEach(function(k){ cards.appendChild(card(w, k, w.matieres[k])); });
+      row.appendChild(cards);
+      host.appendChild(row);
+    });
+    railProg.forEach(function(r){
+      var n = r.keys.filter(isDone).length;
+      r.node.textContent = n + '/' + r.keys.length;
+      r.node.classList.toggle('full', n === r.keys.length);
+      r.node.hidden = (n === 0);
+    });
+    if(!shown){
+      host.appendChild(el('div','empty',
+        q ? 'Aucun résultat pour « '+state.q.trim()+' »'
+          : (state.hideDone ? 'Tout est coché comme fait' : 'Aucune matière sélectionnée')));
+    }
+  }
+
+  /* ---------- matieres ---------- */
+  function matKeys(k){
+    var out = [];
+    WEEKS.forEach(function(w){ if(w.type !== 'vacances' && w.matieres && w.matieres[k]) out.push(sKey(w, k)); });
+    return out;
+  }
+  function renderMatTabs(){
+    var host = document.getElementById('m-tabs');
+    host.textContent = '';
+    ORDER.forEach(function(k){
+      var ks = matKeys(k), n = ks.filter(isDone).length;
+      var b = el('button','m-tab');
+      b.type = 'button';
+      tint(b, k);
+      b.setAttribute('aria-pressed', state.mat === k ? 'true' : 'false');
+      b.appendChild(el('span','mt-code', SHORT[k] || k));
+      b.appendChild(el('span','mt-name', MAT[k].nom));
+      b.appendChild(el('span','mt-prog', n + '/' + ks.length + ' fait'));
+      b.addEventListener('click', function(){
+        state.mat = k; saveLS(); renderMatTabs(); renderMatDetail();
+      });
+      host.appendChild(b);
+    });
+  }
+  function renderMatDetail(){
+    var host = document.getElementById('m-detail');
+    host.textContent = '';
+    var k = state.mat, m = MAT[k];
+    var head = el('div','m-head');
+    head.appendChild(el('span','eyebrow', (m.planning_officiel ? 'Planning officiel · ' : 'Planning estimé · ') + m.source));
+    head.appendChild(el('h2', null, m.nom));
+    if(m.enseignant) head.appendChild(el('div','tile-sub', m.enseignant));
+    if(m.remarque) head.appendChild(el('div','why', m.remarque));
+    var mine = DEVOIRS.filter(function(x){ return x.matiere === k; });
+    if(mine.length){
+      var dl = el('div','chipline');
+      mine.forEach(function(x){
+        dl.appendChild(el('span','count', fullDate(x.a_rendre).replace(/ \d{4}$/,'') + ' · ' + x.intitule.split(' : ')[0] + (isDone(dKey(x)) ? ' ✓' : '')));
+      });
+      head.appendChild(dl);
+    }
+    host.appendChild(head);
+
+    var path = el('div','path');
+    WEEKS.forEach(function(w, i){
+      if(w.type === 'vacances'){
+        var h = el('div','hol');
+        h.appendChild(el('span','eyebrow','Pause'));
+        h.appendChild(el('h3', null, w.libelle));
+        h.appendChild(el('span','wk-dates', range(w.debut, w.fin)));
+        path.appendChild(h);
+        return;
+      }
+      var e = w.matieres && w.matieres[k];
+      var key = e ? sKey(w, k) : null;
+      var row = el('div','pr' + (e ? '' : ' off') + (i === CUR && IN_TERM ? ' now-wk' : '') + (key && isDone(key) ? ' done' : ''));
+      if(key) row.setAttribute('data-key', key);
+      var rail = el('div','pr-rail');
+      rail.appendChild(el('div','pr-no', w.numero != null ? (w.numero < 10 ? '0'+w.numero : String(w.numero)) : '—'));
+      rail.appendChild(el('div','pr-d', range(w.debut, w.fin)));
+      row.appendChild(rail);
+      var b = el('div','pr-body');
+      if(!e){
+        b.appendChild(el('div','pr-title','Pas de séance programmée'));
+        row.appendChild(b);
+        row.appendChild(el('div'));
+      } else {
+        b.appendChild(el('div','pr-title', e.titre));
+        var meta = el('div','sc-head');
+        if(e.chapitre && e.chapitre !== '--' && e.chapitre !== e.titre){
+          meta.appendChild(el('span','sc-ch', /^[0-9-]+$/.test(e.chapitre) ? 'chapitre '+e.chapitre : e.chapitre));
+        }
+        if(e.pages) meta.appendChild(el('span','sc-ch','pages '+e.pages));
+        if(e.estime){ var et = el('span','est-tag','estimé'); tint(et, k); meta.appendChild(et); }
+        if(meta.childNodes.length) b.appendChild(meta);
+        body(b, k, e);
+        row.appendChild(b);
+        row.appendChild(checkbox('m', key, 'fait'));
+      }
+      path.appendChild(row);
+    });
+    host.appendChild(path);
+  }
+
+  /* ---------- devoirs ---------- */
+  function renderDevoirs(){
+    var host = document.getElementById('devoirs');
+    host.textContent = '';
+    DEVOIRS.forEach(function(x){
+      var key = dKey(x);
+      var n = daysTo(x.a_rendre);
+      var row = el('div','dv' + (n < 0 ? ' past' : '') + (isDone(key) ? ' rendu' : ''));
+      row.setAttribute('data-key', key);
+      var dt = el('div','dv-date mono', fullDate(x.a_rendre).replace(/^\w+ /,''));
+      if(at8(x.a_rendre)) dt.appendChild(el('div','sc-ch','à 8h'));
+      row.appendChild(dt);
+      row.appendChild(el('span','dv-when' + (n >= 0 && n <= 21 ? ' soon' : ''), delay(n)));
+      var main = el('div','dv-main');
+      var tr = el('div','tagrow');
+      tr.appendChild(chip(x.matiere));
+      tr.appendChild(el('span','tag', MAT[x.matiere].nom));
+      if(x.estime){ var t = el('span','est-tag','estimé'); tint(t, x.matiere); tr.appendChild(t); }
+      if(x.facultatif) tr.appendChild(el('span','tag','facultatif'));
+      if(x.note) tr.appendChild(el('span','tag', x.note));
+      main.appendChild(tr);
+      main.appendChild(el('div','dv-title', x.intitule));
+      main.appendChild(el('div','tile-sub',
+        'Publié en semaine ' + x.publie_semaine
+        + (x.correction ? ' · correction ' + (/^\d{4}-/.test(x.correction) ? fullDate(x.correction).replace(/^\w+ /,'') : x.correction) : '')));
+      if(x.justification) main.appendChild(el('div','why', x.justification));
+      row.appendChild(main);
+      row.appendChild(checkbox('d', key, 'rendu'));
+      host.appendChild(row);
+    });
+  }
+
+  /* ---------- views ---------- */
+  function setView(v){
+    state.view = v;
+    ['semaines','matieres','devoirs'].forEach(function(name){
+      document.getElementById('view-'+name).hidden = (name !== v);
+      document.getElementById('tab-'+name).setAttribute('aria-selected', name === v ? 'true' : 'false');
+    });
+    saveLS();
+  }
+
+  /* ---------- footer ---------- */
+  function renderFoot(){
+    var f = document.getElementById('foot');
+    f.textContent = '';
+    var s = el('div','sync' + (syncState.on ? ' on' : ''));
+    s.appendChild(el('span','dotled'));
+    s.appendChild(el('span', null, syncState.msg));
+    f.appendChild(s);
+    f.appendChild(el('div', null, 'Sources : ' + ORDER.map(function(k){ return MAT[k].source; }).join(', ')));
+    f.appendChild(el('div', null, 'Évaluation de Programmes : parcours reconstruit, non officiel'));
+  }
+
+  /* ---------- wire ---------- */
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click', function(){ setView(b.getAttribute('data-view')); });
+  });
+  document.getElementById('q').addEventListener('input', function(ev){
+    state.q = ev.target.value;
+    renderWeeks();
+  });
+  var hd = document.getElementById('hide-done');
+  hd.setAttribute('aria-pressed', state.hideDone ? 'true' : 'false');
+  hd.addEventListener('click', function(){
+    state.hideDone = !state.hideDone;
+    hd.setAttribute('aria-pressed', state.hideDone ? 'true' : 'false');
+    saveLS();
+    renderWeeks();
+  });
+  document.getElementById('theme-btn').addEventListener('click', function(){
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    var dark = cur ? cur === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    state.theme = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', state.theme);
+    saveLS();
+  });
+
+  renderNow();
+  renderRuler();
+  renderFilters();
+  renderWeeks();
+  renderMatTabs();
+  renderMatDetail();
+  renderDevoirs();
+  renderTiles();
+  renderFoot();
+  setView(state.view);
+  initRemote();
+
+  if(IN_TERM && state.view === 'semaines'){
+    var cw = document.getElementById('wk-'+CUR);
+    if(cw && cw.getBoundingClientRect().top > window.innerHeight){
+      cw.scrollIntoView({block:'start'});
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
